@@ -20,6 +20,13 @@
     rel="stylesheet"
     href="https://unpkg.com/98.css"
   />
+
+  <style>
+    .hidden {
+      display: none;
+    }
+  </style>
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
@@ -47,130 +54,165 @@
 
 <body style="background-color: #008080">
 
-<div class="container">
-  <div class="row">
-    <div class="window col-6" style="width: 520px;">
-      <div class="title-bar">
-        <div class="title-bar-text">Welcome! My name is Kaloyan Sarafov</div>
-      </div>
-      <div class="window-body" style="width: available; height: 200px">
-        <ul class="tree-view" style="height: 188px; width: available">
-          <li>
-            <a href="#intro" id="intro-link" class="link" rel="intro">Intro</a>
-          </li>
-          <li>
-            <a href="#info" id="info-link" class="link" rel="info">Who am I?</a>
-          </li>
-          <li>
-            <details open>
-              <summary>Education</summary>
-              <ul>
-                <li>2009 - 2019: Lycee Francais Victor Hugo de Sofia</li>
-                <li>2019 - present: Softuni Svetlina</li>
-              </ul>
-            </details>
-          </li>
-          <li>
-            <details open>
-              <summary>Work Experience & Projects</summary>
-              <ul>
-                <li>
-                  <a href="#cs" id="cs-link" class="link" rel="cs">C#</a>
-                </li>
-                <li>
-                  <a href="#cpp" id="cpp-link" class="link" rel="cpp">C++</a>
-                </li>
-                <li>
-                  <a href="#web" id="web-link" class="link" rel="web">Web</a>
-                </li>
-              </ul>
-            </details>
-          </li>
-        </ul>
-      </div>
-      <div class="status-bar">
-        <p class="status-bar-field">Press F1 for help</p>
-        <p class="status-bar-field">Slide 1</p>
-        <p class="status-bar-field">CPU Usage: 14%</p>
-      </div>
-    </div>
 
-    <div class="window col-6 offset-md-1" style="width: 520px; height: 100px" id="intro">
-      <div class="title-bar">
-        <div class="title-bar-text">Introduction to my website</div>
-        <div class="title-bar-controls">
-          <button aria-label="Help"></button>
-          <button aria-label="Close"></button>
-        </div>
-      </div>
-      <div class="window-body" style="height: 50px">
-        To use my website, click any of the files present in the tree view above and they will open up in place of this
-        <section class="field-row" style="justify-content: flex-end">
-          <button>OK</button>
-          <button>Cancel</button>
-        </section>
-      </div>
-    </div>
+<div class="window" style="width: 520px; position: absolute; left: 30px; top: 20px" id="filebrowser">
+  <div class="title-bar" style="cursor: move;" id="filebrowserheader">
+    <div class="title-bar-text">Welcome! My name is Kaloyan Sarafov</div>
+  </div>
+  <div class="window-body" style="width: available; height: 200px">
+    <ul class="tree-view" style="height: 200px; width: available">
+      <li>
+        <a href="#intro" id="intro-link" class="link" rel="intro">Intro</a>
+      </li>
+      <li>
+        <a href="#info" id="info-link" class="link" rel="info">Who am I?</a>
+      </li>
+      <li>
+        <details open>
+          <summary>Education</summary>
+          <ul>
+            <li>2009 - 2019: Lycee Francais Victor Hugo de Sofia</li>
+            <li>2019 - present: Softuni Svetlina</li>
+          </ul>
+        </details>
+      </li>
+      <li>
+        <details open>
+          <summary>Work Experience & Projects</summary>
+          <ul>
+            <li>
+              <a href="#cs" id="cs-link" class="link" rel="cs">C#</a>
+            </li>
+            <li>
+              <a href="#cpp" id="cpp-link" class="link" rel="cpp">C++</a>
+            </li>
+            <li>
+              <a href="#web" id="web-link" class="link" rel="web">Web</a>
+            </li>
+          </ul>
+        </details>
+      </li>
+      <li>
+        <a href="#links" id="links-link" class="link" rel="links">Useful Links</a>
+      </li>
+    </ul>
+  </div>
+  <div class="status-bar">
+    <p class="status-bar-field">Press F1 for help</p>
+    <p class="status-bar-field">Slide 1</p>
+    <p class="status-bar-field">CPU Usage: 14%</p>
   </div>
 </div>
 
-<div class="container">
-  <div class="row">
-    <div class="window " style="width: 520px" id="info">
-      <div class="title-bar">
-        <div class="title-bar-text">Who am I?</div>
-      </div>
 
-      <div class="window-body">
-        <div class="field-row">
-          <label for="email">From</label>
-          <input id="email" type="text" value="sarafovkaloyan@gmail.com" style="width: 150px"/>
-        </div>
-        <div class="field-row">
-          <label for="emailRecipient">To</label>
-          <input id="emailRecipient" type="text" value="you@example.com" style="width: 150px"/>
-        </div>
-        <div class="field-row-stacked" style="width: 200px">
-          <label for="text20">Additional notes</label>
-          <textarea readonly id="text20" rows="8" style="width: 400px">
+<div class="window" style="width: 520px; position: absolute; left: 50px; top: 350px" id="intro">
+  <div class="title-bar" style="cursor: move;" id="introheader">
+    <div class="title-bar-text">Introduction to my website</div>
+    <div class="title-bar-controls">
+      <button aria-label="Help"></button>
+      <button onclick="toggler('intro')" aria-label="Close"></button>
+    </div>
+  </div>
+  <div class="window-body">
+    To use my website, click any of the files present in the tree view on the left, and they will open up as a
+    window.
+    <section class="field-row" style="justify-content: flex-end">
+      <button onclick="toggler('intro')">OK</button>
+    </section>
+  </div>
+</div>
+
+
+<div class="window hidden" style="width: 520px; position: absolute; left: 1100px; top: 200px" id="info">
+  <div class="title-bar" style="cursor: move;" id="infoheader">
+    <div class="title-bar-text">Who am I?</div>
+    <div class="title-bar-controls">
+      <button aria-label="Minimize"></button>
+      <button onclick="toggler('info')" aria-label="Close"></button>
+    </div>
+  </div>
+
+  <div class="window-body">
+    <div class="field-row">
+      <label for="email">From</label>
+      <input id="email" type="text" value="sarafovkaloyan@gmail.com" style="width: 150px"/>
+    </div>
+    <div class="field-row">
+      <label for="emailRecipient">To</label>
+      <input id="emailRecipient" type="text" value="you@example.com" style="width: 150px"/>
+    </div>
+    <div class="field-row-stacked" style="width: 200px">
+      <label for="text20">Additional notes</label>
+      <textarea readonly id="text20" rows="8" style="width: 400px">
         Hello,
-        My name is Kaloyan Sarafov, I am a C# and C++ developer from Sofia, Bulgaria.
+        My name is Kaloyan Sarafov. I am a C# and C++ developer from Sofia, Bulgaria.
         I am currently a student in Softuni Svetlina. I have spent the last few years learning and developing in C# and C++. I have also worked with mySQL and javascript.
       </textarea>
-        </div>
-        <section class="field-row" style="justify-content: flex-end">
-          <button>Send</button>
-          <button>Cancel</button>
-        </section>
-      </div>
+    </div>
+    <section class="field-row" style="justify-content: flex-end">
+      <button onclick="toggler('info')">Send</button>
+      <button onclick="toggler('info')">Cancel</button>
+    </section>
+  </div>
+</div>
+
+<!-- TODO: make the windows below into more responsive, better-looking programs -->
+
+<div class="window hidden" style="width: 520px; position: absolute; left: 1300px; top: 600px" id="cs">
+  <div class="title-bar" style="cursor: move;" id="csheader">
+    <div class="title-bar-text">C#</div>
+    <div class="title-bar-controls">
+      <button aria-label="Minimize"></button>
+      <button onclick="toggler('cs')" aria-label="Close"></button>
     </div>
   </div>
-</div>
-
-<div class="window" style="width: 520px" id="cs">
-  <div class="title-bar">
-    <div class="title-bar-text">C#</div>
-  </div>
   <div class="window-body">
     To use my website, click any of the files present in the tree view above and they will open up in place of this
   </div>
 </div>
 
-<div class="window" style="width: 520px" id="cpp">
-  <div class="title-bar">
+<div class="window hidden" style="width: 520px; position: absolute;" id="cpp">
+  <div class="title-bar" style="cursor: move;" id="cppheader">
     <div class="title-bar-text">C++</div>
+    <div class="title-bar-controls">
+      <button aria-label="Minimize"></button>
+      <button onclick="toggler('cpp')" aria-label="Close"></button>
+    </div>
   </div>
   <div class="window-body">
     To use my website, click any of the files present in the tree view above and they will open up in place of this
   </div>
 </div>
 
-<div class="window" style="width: 520px" id="web">
-  <div class="title-bar">
+<div class="window hidden" style="width: 520px; position: absolute;" id="web">
+  <div class="title-bar" style="cursor: move;" id="webheader">
     <div class="title-bar-text">Web</div>
+    <div class="title-bar-controls">
+      <button aria-label="Minimize"></button>
+      <button onclick="toggler('web')" aria-label="Close"></button>
+    </div>
   </div>
   <div class="window-body">
     To use my website, click any of the files present in the tree view above and they will open up in place of this
+  </div>
+</div>
+
+<div class="window hidden" style="width: 520px; position: absolute;" id="links">
+  <div class="title-bar" style="cursor: move;" id="linksheader">
+    <div class="title-bar-text">Useful Links</div>
+    <div class="title-bar-controls">
+      <button aria-label="Minimize"></button>
+      <button onclick="toggler('links')" aria-label="Close"></button>
+    </div>
+  </div>
+  <div class="window-body">
+    Below are a few useful links to my medias:
+    <br>
+    <a href="https://github.com/kaloyansarafov">Github</a>
+    <br>
+    <a>LinkedIn</a>
+    <br>
+    <a></a>
   </div>
 </div>
 
@@ -180,9 +222,68 @@
   $('.link').click(function () {
     var id = $(this).attr("rel");
 
-    $('#' + id).slideToggle('fast');
+    $('#' + id).toggle('fast');
   });
 </script>
+
+<script>
+  function toggler(divId) {
+    $("#" + divId).toggle('fast');
+  }
+</script>
+
+<script>
+  dragElement(document.getElementById("filebrowser"));
+  dragElement(document.getElementById("intro"));
+  dragElement(document.getElementById("info"));
+  dragElement(document.getElementById("cs"));
+  dragElement(document.getElementById("cpp"));
+  dragElement(document.getElementById("web"));
+  dragElement(document.getElementById("links"));
+
+  function dragElement(elmnt) {
+    var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
+    if (document.getElementById(elmnt.id + "header")) {
+      // if present, the header is where you move the DIV from:
+      document.getElementById(elmnt.id + "header").onmousedown = dragMouseDown;
+    } else {
+      // otherwise, move the DIV from anywhere inside the DIV:
+      elmnt.onmousedown = dragMouseDown;
+    }
+
+    function dragMouseDown(e) {
+      e = e || window.event;
+      e.preventDefault();
+      // get the mouse cursor position at startup:
+      pos3 = e.clientX;
+      pos4 = e.clientY;
+      document.onmouseup = closeDragElement;
+      // call a function whenever the cursor moves:
+      document.onmousemove = elementDrag;
+    }
+
+    function elementDrag(e) {
+      e = e || window.event;
+      e.preventDefault();
+      // calculate the new cursor position:
+      pos1 = pos3 - e.clientX;
+      pos2 = pos4 - e.clientY;
+      pos3 = e.clientX;
+      pos4 = e.clientY;
+      // set the element's new position:
+      elmnt.style.top = (elmnt.offsetTop - pos2) + "px";
+      elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
+    }
+
+    function closeDragElement() {
+      // stop moving when mouse button is released:
+      document.onmouseup = null;
+      document.onmousemove = null;
+    }
+  }
+</script>
+
+
 <script src="js/vendor/modernizr-3.11.2.min.js"></script>
 <script src="js/plugins.js"></script>
 <script src="js/main.js"></script>
